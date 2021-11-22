@@ -1,0 +1,26 @@
+
+
+<%- include("./partials/header")%>
+      <div class="container">
+        <%if(moviesDump.Response=='False'){%>
+            <h1>movies not found!</h1>
+           <%}else{%>
+               <h1>results goes here</h1>
+              <div class="row">
+                <%moviesDump['Search'].forEach( (movie)=>{%>
+
+                    <div class="card " style="width: 18rem;">
+                        <img src="<%=movie.Poster%>" class="card-img-top" alt="image not found">
+                        <div class="card-body">
+                          <h5 class="card-title"><%=movie.Title%></h5>
+                          <a href="/result/<%=movie.imdbID%>" class="btn btn-primary">Know More</a>
+                        </div>
+                      </div>
+    
+                   <%})%>
+              </div>
+
+
+            <%}%>
+      </div>
+      <%- include("./partials/footer")%>
